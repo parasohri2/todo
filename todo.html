@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .heading{
+            color:rgb(188, 0, 0);
+
+        }
+        .container{
+            background-color: rgb(255, 251, 127);
+            padding: 5px;
+            
+            padding-left: 20vw;
+            justify-content: center;
+            border: solid 4px black ;
+border-radius: 5px;
+
+
+margin-left: 20vw;
+margin-right: 20vw;
+        }
+        #submit{
+            background-color: rgb(255, 0, 119);
+            padding: 2px;
+            border:2px solid;
+            border-radius: 10px;
+            padding: 5px;
+        } 
+        ul{
+            list-style: none;
+        }
+        ul li input:checked + span{
+            color: #555;
+            text-decoration: line-through;
+        }
+body{
+    background-color: rgb(136, 207, 231);
+    color:black;
+    
+}
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <div><h1 class="heading">TO DO LIST</h1></div>
+<div class="content"> <input type="text" id="hh" placeholder="write your text">
+
+<button id="submit">add task</button>
+<ul id="ul"></ul>
+</div>
+</div>
+    <script>
+       
+       let add= document.querySelector('#submit');
+       let container=document.querySelector('.container');
+let ul=document.querySelector('#ul')
+function show(){
+        ul.innerHTML=localStorage.getItem("data")
+        let doneButtons = ul.querySelectorAll('.done');
+            doneButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    button.parentElement.parentElement.remove();
+                    save();
+                });
+            });
+      }
+      function save(){
+        localStorage.setItem("data",ul.innerHTML)
+      }
+       add.addEventListener('click',function(e){
+        e.preventDefault();
+        let text=document.querySelector('#hh').value;
+        console.log(`${text}`); if (text.trim() !== "") {
+    let next=document.createElement('li')
+    
+    next.innerHTML=`<input type="checkbox"><span>${text}</span><span><button class="done"> done </button></span>`;
+      ul.appendChild(next)
+      save()
+      document.querySelector('#hh').value=" "
+      
+    
+      
+      console.log("fdh");
+      let done=next.querySelector('.done')
+      done.addEventListener('click',(e)=>
+    {
+        next.remove();
+    
+    console.log("fhddgsfad");
+    })
+    save()
+}
+    })   
+  show()    
+       </script>
+</body>
+</html>
