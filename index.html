@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <style>
@@ -18,13 +18,38 @@ border-radius: 5px;
 
 margin-left: 20vw;
 margin-right: 20vw;
+@media(max-width:700px){
+    margin-left: 0px;
+    margin-right: 0px;
+    justify-content: center;
+    align-items: center;
+
+}
+
         }
+        
+.content{
+    @media(max-width:720px){
+        display: flex;
+        flex-direction: column;
+       
+margin-right: 10vw;
+                
+            }
+}
         #submit{
             background-color: rgb(255, 0, 119);
             padding: 2px;
             border:2px solid;
             border-radius: 10px;
             padding: 5px;
+            @media(max-width:720px){
+                justify-content: center;
+                align-items: center;
+                padding: 5px;
+                margin-top: 5vh;
+            }
+           
         } 
         ul{
             list-style: none;
